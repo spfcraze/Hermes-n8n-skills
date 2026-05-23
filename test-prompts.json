@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have an n8n webhook workflow that receives form submissions. The expression {{$json.email}} keeps returning undefined. What's wrong?",
+    "expected": "Should identify that webhook data is under .body and provide the correct expression {{$json.body.email}}. Should also mention the trigger data structure difference.",
+    "mi_score": 0.9,
+    "tags": ["expressions", "webhook", "common-mistake"]
+  },
+  {
+    "id": 2,
+    "prompt": "Build an n8n workflow that receives Slack slash commands, queries a database for user info, and responds with a formatted message.",
+    "expected": "Should provide: 1) Webhook trigger configuration, 2) Database node setup, 3) Expression syntax for accessing data, 4) Slack node configuration, 5) Error handling strategy. Should reference workflow patterns and node configuration.",
+    "mi_score": 0.85,
+    "tags": ["workflow-patterns", "node-config", "expressions", "integration"]
+  },
+  {
+    "id": 3,
+    "prompt": "My n8n Code node keeps saying 'Cannot read property map of undefined'. I'm using $input.all().map(...). How do I fix this?",
+    "expected": "Should identify that $input.all() might return empty array or undefined. Should suggest: 1) Check if previous node outputs data, 2) Add null check, 3) Use optional chaining, 4) Verify Code node mode (All Items vs Each Item). Should reference error catalog.",
+    "mi_score": 0.88,
+    "tags": ["code-node", "javascript", "error-debugging"]
+  },
+  {
+    "id": 4,
+    "prompt": "I want to create an AI agent in n8n that can answer questions about my company's documentation. It should search a vector database and maintain conversation history.",
+    "expected": "Should provide: 1) AI Agent node setup, 2) Language Model selection, 3) Vector Store Memory configuration, 4) Tool setup for database search, 5) System message guidance. Should reference AI/LangChain section.",
+    "mi_score": 0.82,
+    "tags": ["ai-langchain", "agent", "memory", "tools"]
+  },
+  {
+    "id": 5,
+    "prompt": "My scheduled n8n workflow that runs every hour is failing. The expression {{$json.body.timestamp}} returns undefined. It worked fine with my webhook workflow.",
+    "expected": "Should identify that Schedule trigger puts data at root (not under .body). Should provide trigger comparison table showing Webhook uses .body but Schedule uses root. Should reference Trigger Data Structures section.",
+    "mi_score": 0.87,
+    "tags": ["triggers", "expressions", "schedule", "common-mistake"]
+  }
+]
